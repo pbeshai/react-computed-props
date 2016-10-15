@@ -202,6 +202,7 @@ class Circles extends PureComponent {
       data,
       color,
       pointRadius,
+      plotAreaWidth,
       xScale,
       yScale,
     } = this.props;
@@ -210,14 +211,24 @@ class Circles extends PureComponent {
     binding.exit().remove();
     const entering = binding.enter().append('circle')
       .classed('data-point', true)
-      .style('fill', 'red');
+      .style('fill', 'red')
+      .style('fill', color)
+      .style('fill-opacity', 0.3)
+      .attr('cx', plotAreaWidth / 2);
 
     binding.merge(entering)
       .transition()
+      .duration(1000)
+      .delay((d, i) => i / 2)
       .attr('cx', d => xScale(d.x))
       .attr('cy', d => yScale(d.y))
+      .attr('r', d => (typeof pointRadius === 'function' ? pointRadius(d) : pointRadius) * 0.8)
+      .style('fill', color)
+      .style('fill-opacity', 0.3)
+      .transition()
+      .duration(200)
       .attr('r', pointRadius)
-      .style('fill', d => color(d));
+      .style('fill-opacity', 1);
   }
 
   /**
