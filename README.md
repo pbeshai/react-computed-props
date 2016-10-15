@@ -64,26 +64,6 @@ To test examples, run:
 npm run test:examples
 ```
 
-### Working on docs
-
-When editing the docs, it helps to have a dev server watching changes. To do this, run:
-
-```
-npm run docs:watch
-```
-
-To build the docs, run:
-
-```
-npm run docs:build
-```
-
-To publish the docs, run:
-
-```
-npm run docs:publish
-```
-
 
 ### License
 
