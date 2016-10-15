@@ -1,6 +1,6 @@
 {
   "name": "react-computed-props",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A higher-order component for React to add computed or derived props to the wrapped component for better performance.",
   "main": "lib/index.js",
   "files": [
