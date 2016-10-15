@@ -6,11 +6,7 @@
     "react-scripts": "0.6.0"
   },
   "dependencies": {
-    "d3-array": "^1.0.1",
-    "d3-scale": "^1.0.3",
-    "d3-selection": "^1.0.2",
-    "d3-transition": "^1.0.2",
-    "d3-voronoi": "^1.0.2",
+    "d3": "^4.2.7",
     "react": "^15.3.2",
     "react-computed-props": "^0.1.0",
     "react-dom": "^15.3.2"

@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import addComputedProps from 'react-computed-props';
-import d3 from './d3';
+import * as d3 from 'd3';
 
 /**
  * Figure out what is needed to render the chart based on the props of the component
