@@ -88,7 +88,7 @@ Higher-order component that provides props computed in the `computePropsFunc` to
 
 - `changeInclude` (*String[]*): If provided, ONLY changes to these props triggers re-running `computedPropsFunc`. Can't be used with `changeExclude`.
 
-- `flagRecomputed` (*Boolean*): If true, includes a prop `recomputedProps` that is true if props were recomputed and false otherwise.
+- `flagRecomputed` (*Boolean*): If true, includes a prop `recomputedProps` that is true if props were recomputed and false otherwise. Defaults to false.
 
 - `recomputedFlagName` (*String*): The name of the flag added to props indicating whether the props were recomputed or not, used when `flagRecomputed` is true. Defaults to `'recomputedProps'`.
 
