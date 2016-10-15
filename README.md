@@ -97,8 +97,8 @@ Higher-order component that provides props computed in the `computePropsFunc` to
 ##### Arguments
 
 1. `computePropsFunc` (*Function*): A function mapping from `props` to an object of computed props. These are used in addition to the regular `props` received when rendering `WrappedComponent`. If `props` contains keys that are also returned from `computePropFunc`, the values returned from `computePropFunc` will overwrite them.
-1. [`options`] (*Object*): The options object as described above.
-2. `WrappedComponent` (*React Component*): The component to inject the URL query parameters into as props.
+1. `[options]` (*Object*): The options object as described above.
+2. `WrappedComponent` (*React Component*): The component to inject the computed properties into as props.
 
 ##### Returns
 
@@ -113,7 +113,7 @@ A React component class
 
 React Computed Props comes with three utility functions: `compose`, `shallowEquals`, and `shallowEqualsDebug`.
 
-##### `compose(func...)`
+##### `compose(...funcs)`
 
 A simple function that takes a list of functions and composes them. That is: `compose(f, g, h)(foo)` is the same as `f(g(h(foo)))`. This can be potentially be used to chain multiple computed props functions together. For example:
 
