@@ -97,7 +97,7 @@ Higher-order component that provides props computed in the `computePropsFunc` to
 ##### Arguments
 
 1. `computePropsFunc` (*Function*): A function mapping from `props` to an object of computed props. These are used in addition to the regular `props` received when rendering `WrappedComponent`. If `props` contains keys that are also returned from `computePropFunc`, the values returned from `computePropFunc` will overwrite them.
-1. [`options`] (*Object*): The options object as described above.
+1. `[options]` (*Object*): The options object as described above.
 2. `WrappedComponent` (*React Component*): The component to inject the URL query parameters into as props.
 
 ##### Returns
