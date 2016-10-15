@@ -113,7 +113,7 @@ A React component class
 
 React Computed Props comes with three utility functions: `compose`, `shallowEquals`, and `shallowEqualsDebug`.
 
-##### `compose(func...)`
+##### `compose(...funcs)`
 
 A simple function that takes a list of functions and composes them. That is: `compose(f, g, h)(foo)` is the same as `f(g(h(foo)))`. This can be potentially be used to chain multiple computed props functions together. For example:
 
