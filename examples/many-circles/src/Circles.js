@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { addComputedProps } from 'react-computed-props';
+import addComputedProps from 'react-computed-props';
 import d3 from './d3';
 
 /**
