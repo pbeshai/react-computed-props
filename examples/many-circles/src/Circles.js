@@ -211,7 +211,6 @@ class Circles extends PureComponent {
     binding.exit().remove();
     const entering = binding.enter().append('circle')
       .classed('data-point', true)
-      .style('fill', 'red')
       .style('fill', color)
       .style('fill-opacity', 0.3)
       .attr('cx', plotAreaWidth / 2);
