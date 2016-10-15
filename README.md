@@ -109,6 +109,52 @@ A React component class
 * Needs to be called twice `addComputedProps(computePropsFunc, [options])(MyComponent)`.
 
 
+#### Utility Functions
+
+React Computed Props comes with three utility functions: `compose`, `shallowEquals`, and `shallowEqualsDebug`.
+
+##### `compose(func...)`
+
+A simple function that takes a list of functions and composes them. That is: `compose(f, g, h)(foo)` is the same as `f(g(h(foo)))`. This can be potentially be used to chain multiple computed props functions together. For example:
+
+```js
+export default compose(
+  addComputedProps(visProps, { changeExclude: ['highlightPointId'] }),
+  addComputedProps(highlightProps, { changeInclude: ['highlightPointId'] })
+)(MyComponent);
+```
+
+##### `shallowEquals(objA, objB, [excludeKeys], [includeKeys])`
+
+Returns true if `objA` (*Object*) shallow equals `objB` (*Object*). If `excludeKeys` (*String[]*) is provided, it ignores differences in the listed keys. If `includeKeys` (String[]) is provided, it only looks for differences in the listed keys. You cannot specify both `excludeKeys` and `includeKeys`.
+
+##### `shallowEqualsDebug(objA, objB, [excludeKeys], [includeKeys], [logPrefix])`
+
+Runs `shallowEquals` to see if `objA` shallow equals `objB`. If they do, it returns and logs the string `'equal'`. If they do not, it returns and logs an array where each difference is logged in this format:
+
+```js
+[keyName, objAValue, objBValue, ...]
+```
+
+This can be used to debug why shallowEquals returned false and to help ensure the props you are using are not mistakenly being recreated.
+
+You can specify a prefix for the logging to console with the `logPrefix` argument, which defaults to `'shallowEqualsDebug'`.
+
+Sample output if the prop data changed from `[1, 2]` to `[3, 4]` and all other props stayed the same:
+
+```js
+['data', [1, 2], [3, 4]]
+```
+
+If you see something like:
+
+```js
+['data', [1, 2], [1, 2]]
+```
+
+It means you are re-creating an array and thus breaking performance benefits given by shallow equals comparing and aborting updates in shouldComponentUpdate.
+
+
 ### Development
 
 During development of examples, it can be helpful to have a watch running automatically rebuilding the package when changes take place. To get this running run:

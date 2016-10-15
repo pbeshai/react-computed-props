@@ -3,5 +3,5 @@
  */
 export default from './addComputedProps';
 export addComputedProps from './addComputedProps';
-export shallowEquals from './shallowEquals';
+export { default as shallowEquals, shallowEqualsDebug } from './shallowEquals';
 export compose from './compose';
