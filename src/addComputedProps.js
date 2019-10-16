@@ -48,43 +48,58 @@ export default function addComputedProps(computedPropsFunc, options = {}) {
     function computeProps(props) {
       let computedProps = computedPropsFunc(props);
       if (flagRecomputed) {
-        computedProps = Object.assign({ [recomputedFlagName]: true }, computedProps);
+        computedProps = Object.assign(
+          { [recomputedFlagName]: true },
+          computedProps
+        );
       }
 
       return computedProps;
     }
 
-    const displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
+    const displayName =
+      WrappedComponent.displayName || WrappedComponent.name || 'Component';
 
     class AddComputedProps extends Component {
-      static displayName = `AddComputedProps(${displayName})`
-      static WrappedComponent = WrappedComponent
-      static defaultProps = WrappedComponent.defaultProps
+      static displayName = `AddComputedProps(${displayName})`;
+      static WrappedComponent = WrappedComponent;
+      static defaultProps = WrappedComponent.defaultProps;
 
-      componentWillMount() {
+      // eslint-disable-next-line camelcase
+      UNSAFE_componentWillMount() {
         this.propsToAdd = computeProps(this.props);
       }
 
-      componentWillUpdate(nextProps) {
+      // eslint-disable-next-line camelcase
+      UNSAFE_componentWillUpdate(nextProps) {
         // recompute props to add only when the props change
-        if (alwaysRecompute || !shallowEquals(this.props, nextProps, changeExclude, changeInclude)) {
+        if (
+          alwaysRecompute ||
+          !shallowEquals(this.props, nextProps, changeExclude, changeInclude)
+        ) {
           // output debug messages showing where props changed
           if (debug === true || debugAll) {
-            shallowEqualsDebug(this.props, nextProps, changeExclude, changeInclude,
-              `Computing props in ${displayName} due to prop changes`);
+            shallowEqualsDebug(
+              this.props,
+              nextProps,
+              changeExclude,
+              changeInclude,
+              `Computing props in ${displayName} due to prop changes`
+            );
           }
-
 
           this.propsToAdd = computeProps(nextProps);
 
-        // otherwise we are reusing, so reset the recomputed flag name if it is set
+          // otherwise we are reusing, so reset the recomputed flag name if it is set
         } else if (this.propsToAdd[recomputedFlagName]) {
           this.propsToAdd = { ...this.propsToAdd, [recomputedFlagName]: false };
         }
       }
 
       render() {
-        return <WrappedComponent {...this.props} {...(this.propsToAdd || {})} />;
+        return (
+          <WrappedComponent {...this.props} {...(this.propsToAdd || {})} />
+        );
       }
     }
 
