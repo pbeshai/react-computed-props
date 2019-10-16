@@ -1,6 +1,6 @@
 {
   "name": "react-computed-props",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A higher-order component for React to add computed or derived props to the wrapped component for better performance.",
   "main": "lib/index.js",
   "files": [
@@ -58,21 +58,22 @@
     "babel-preset-react-app": "^0.2.1",
     "babel-register": "6.14.0",
     "cross-env": "3.0.0",
-    "enzyme": "^2.4.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "3.6.0",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "jest": "15.1.1",
-    "react": "^15.3.2",
+    "react": "^16.10.2",
     "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react-dom": "^16.10.2",
     "rimraf": "2.5.4",
     "webpack": "1.13.2"
   },
   "peerDependencies": {
-    "react": "^15.0 || ^16.0"
+    "react": "^16.0"
   },
   "dependencies": {
     "loose-envify": "^1.2.0"
@@ -91,6 +92,7 @@
     ]
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "test-setup.js",
     "testPathDirs": [
       "src"
     ]
