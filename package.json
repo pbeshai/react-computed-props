@@ -70,7 +70,7 @@
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^16.10.2",
     "rimraf": "2.5.4",
-    "webpack": "1.13.2"
+    "webpack": "5.94.0"
   },
   "peerDependencies": {
     "react": "^16.0"
